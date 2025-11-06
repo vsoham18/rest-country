@@ -2,9 +2,9 @@
   "name": "rest-country-with-react",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel serve index.html",
+    "start": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html --dist-dir dist"
+    "build": "parcel build index.html "
   },
   "keywords": [],
   "author": "",
