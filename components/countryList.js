@@ -5,13 +5,23 @@ import Shimmer from './shimmer.js';
 
 export default function CountryList({query}) { 
   const [countryData,setcountryData]=useState([])
-  useEffect(()=>{
-      fetch('https://restcountries.com/v3.1/all').then((res)=>{
-        res.json().then((data)=>{ 
-          setcountryData(data)
-        })
-      })
-  },[])
+ useEffect(() => {
+  fetch('https://restcountries.com/v3.1/independent?status=true')
+    .then(res => res.json())
+    .then(data => {
+      if (Array.isArray(data)) {
+        setcountryData(data);
+      } else {
+        console.error("Unexpected data format:", data);
+        setcountryData([]);
+      }
+    })
+    .catch(err => {
+      console.error("Fetch error:", err);
+      setcountryData([]);
+    });
+}, []);
+
   if(countryData.length==0){
     return <Shimmer/>
   }
