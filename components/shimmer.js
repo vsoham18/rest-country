@@ -1,5 +1,4 @@
-import React from 'react'
-import './Shimmer.css'
+import './shimmer.css'
 
 export default function Shimmer() {
   return (
@@ -9,4 +8,4 @@ export default function Shimmer() {
       })}
     </div>
   )
-}
+} 
